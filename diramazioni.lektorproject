@@ -3,4 +3,3 @@ name = diramazioni
 
 [packages]
 lektor-webpack-support = 0.3
-lektor-markdown-header-anchors = 0.2

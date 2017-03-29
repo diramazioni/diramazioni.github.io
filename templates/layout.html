@@ -1,18 +1,47 @@
 <!doctype html>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+<html lang="{{ lang |default('en')}}">
+
+{% block metas %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <!--
+  {% if description %}
+  <meta name="description" content="{{ description|e }}">
+  {% endif %}
+  <link rel="canonical" href=" abs_link(permalink) ">
+  <link rel="favicon" href="" sizes=""/>
+  {% if prevlink %}
+      <link rel="prev" href="{{ prevlink }}" type="text/html">
+  {% endif %}
+  {% if nextlink %}
+      <link rel="next" href="{{ nextlink }}" type="text/html">
+  {% endif %}
+ -->
+
+{% endblock %}
+
+{% block styles %}
+  <link href="{{ '/static/css/uikit.css'|url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/static/css/uikit-core.css'|url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/static/css/L_uikit_deep_red.css'|url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/static/css/custom.css'|url }}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block scripts %}
+  <script src="{{ '/static/js/jquery.js'|url }}"></script>
+  <script src="{{ '/static/js/jquery-ui_effects-core.min.js'|url }}"></script>
+  <script src="{{ '/static/js/uikit.js'|url }}"></script>
+  <script src="{{ '/static/js/uikit-icons.js'|url }}"></script>
+  <script src="{{ '/static/js/utils.js'|url }}"></script>
+  <script src="{{ '/static/js/site.js'|url }}"></script>
+
+  <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+{% endblock %}
+
 <title>{% block title %}Welcome{% endblock %} — diramazioni</title>
 <body>
   <header>
-    <h1>diramazioni</h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        {% for id, item in bag('menu').items() %}
-            <li{% if this.is_child_of(item.path) %} class="active"{% endif
-              %}><a href="{{ item.path|url }}">{{ item.label }}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
+    {% block header %}{% endblock %}
   </header>
   <div class="page">
     {% block body %}{% endblock %}
@@ -21,3 +50,4 @@
     &copy; Copyright 2017 by Eli,,,.
   </footer>
 </body>
+</html>

@@ -1,0 +1,166 @@
+a, u {
+    text-decoration: none !important;
+}
+
+main {
+    padding: 10px;
+}
+
+.uk-navbar-toggle:after {
+    content: '';
+}
+
+div.uk-open {
+    /*opacity: 0.9;*/
+    padding: 5px;
+    padding-left: 25px;
+}
+
+.sr-only {
+    font-size: 1px;
+    opacity: 0;
+}
+
+#smenu {
+    color: white;
+}
+
+/*
+.bl-position, .sm-position {
+    position: fixed;
+    z-index: 1000;
+    left: 15px;
+    top: 15px;
+}*/
+
+#menu_bar-m {
+  /*margin-left: 80px;*/
+}
+
+#menu_bar-s {
+  /*margin-left: 30px;*/
+}
+
+/*.inline-block {
+  display: inline-block;
+}*/
+#navbar-left {
+  left: 15px;
+  top: 15px;
+  margin-left: 15px;
+  margin-top:  15px;
+  /*margin-top: */
+}
+
+.navbar_toggle {
+  margin-top:-15px;
+}
+
+.sticky_toggle {
+  left: 100px;
+  top: 30px;
+  position: absolute;
+}
+
+.accordion_menu {
+  margin-left: 120px;
+  position: fixed;
+  top: 90px;
+  padding: 15px;
+  background-color: rgb(102, 13, 13);
+  z-index: 1100;
+}
+
+.sticky_menu {
+  margin-left: 120px;
+  top: 20px;
+}
+
+
+
+.translations {
+    padding: 0;
+}
+
+.translations>li {
+    display: inline-block;
+}
+
+
+/*#smenu:focus {
+  background-image: none, url('../svg/fish.svg');
+}*/
+
+.shadows {
+    border-radius: 100%;
+    background-color: black;
+    box-shadow: 0 0 10px 10px black;
+}
+
+li>a.reference {
+    font-size: 14px;
+}
+
+.uk-offcanvas-bar .uk-nav-default>li>a:hover {
+    color: red;
+}
+
+.uk-offcanvas-bar .uk-nav-default>li>a {
+    color: wheat;
+}
+
+.uk-navbar-dropdown {
+    padding: 0;
+    opacity: 1;
+    /*top: 10px;*/
+}
+
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background: -moz-linear-gradient(top, rgba(33, 3, 9, 1) 0%, rgba(33, 3, 9, 1) 63%, rgba(33, 3, 9, 0) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(33, 3, 9, 1) 0%, rgba(33, 3, 9, 1) 63%, rgba(33, 3, 9, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(33, 3, 9, 1) 0%, rgba(33, 3, 9, 1) 63%, rgba(33, 3, 9, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#210309', endColorstr='#00210309', GradientType=0);
+    /* IE6-9 */
+    copy
+}
+
+#container {}
+
+#testo {
+    margin-top: 200px;
+}
+
+blockquote {
+    color: #f2efb8;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #ff0;
+}
+
+h1 {
+    margin: 0
+}
+
+a.toc-backref {
+    color: #f1c222;
+}
+
+section {
+    padding: 10px;
+}
+
+pre.code, :not(pre)>samp {
+    background-color: #111;
+}
+
+div.admonition {
+    background-color: #5a1919;
+}
+
+div.admonition p.admonition-title {
+    background-color: #e6e1c6;
+}
