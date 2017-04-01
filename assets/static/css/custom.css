@@ -1,9 +1,9 @@
-a, u {
+/*a, u {
     text-decoration: none !important;
-}
+}*/
 
-main {
-    padding: 10px;
+.page {
+    padding: 0 10px 0 10px;
 }
 
 .uk-navbar-toggle:after {
@@ -63,9 +63,9 @@ div.uk-open {
 }
 
 .accordion_menu {
-  margin-left: 120px;
+  margin-left: 115px;
   position: fixed;
-  top: 90px;
+  top: 65px;
   padding: 15px;
   background-color: rgb(102, 13, 13);
   z-index: 1100;
@@ -76,15 +76,17 @@ div.uk-open {
   top: 20px;
 }
 
-
-
-.translations {
-    padding: 0;
+.toc-active {
+  background-color: #790f0f;
 }
 
-.translations>li {
-    display: inline-block;
+ul.toc>li {
+  padding: 5px;
 }
+ul.toc>li:hover {
+  background-color: #531212
+}
+
 
 
 /*#smenu:focus {
@@ -138,7 +140,7 @@ blockquote {
 }
 
 h1, h2, h3, h4, h5 {
-    color: #ff0;
+    color: #e7d473;
 }
 
 h1 {

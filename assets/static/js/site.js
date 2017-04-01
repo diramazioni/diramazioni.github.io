@@ -8,31 +8,36 @@ var WindowsSize=function(){
 $(document).ready(WindowsSize);
 $(window).resize(WindowsSize);
 */
+import $ from 'jquery';
+import UIkit from 'uikit';
+import Icons from 'uikit-icons';
+window.UIkit = UIkit;
+UIkit.use(Icons);
+
 
 $(document).ready(function() {
 
-    /* TOC */
-
-  $('#indice').removeClass('topic contents');
-  $('#indice').find('ul').addClass('uk-list uk-list-divider').attr('id', 'tlist'); //uk-nav uk-nav-default
-  $('#indice > p').detach();
-  $('#indice').detach().insertAfter('#toptranslations');
-  $('#indice').find('a').each(function () {
-      // $(this).attr('uk-scroll', '');
-      UIkit.scroll($(this));
-  })
-  // var spyNav = UIkit.scrollspyNav('#indice > ul', {closest: 'li', scroll: true});
-  // UIkit.toggle(element, options);
-
-
+  var nav_toggle = UIkit.toggle('#navbar_toggle', {
+    target: '.accordion_menu',
+    animation: 'uk-animation-fade'
+  });
   $('#menu').on('active', function () { //sticky
     $('.navbar_toggle').addClass('sticky_toggle', 500);
+    console.log('to ' + nav_toggle.isToggled());
+    nav_toggle.toggle();
     // $('.accordion_menu').addClass('sticky_menu', 500);
   });
   $('#menu').on('inactive', function () { //un-sticky
+    console.log('fr ' + nav_toggle.isToggled());
     $('.navbar_toggle').removeClass('sticky_toggle', 500);
     // $('.accordion_menu').removeClass('sticky_menu', 500);
   });
+  //uk-toggle="target: .accordion_menu; animation: uk-animation-fade
+
+
+  // $( window ).scroll(function() {
+  //
+  // });
 
   var posY = 0;
   letters = ['E', 'L', 'I']

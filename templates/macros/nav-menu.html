@@ -58,8 +58,8 @@
       <!-- @@@ small screens -->
       <div id="menu_bar-s" class="uk-hidden@m uk-width-auto">
         <div class="navbar_toggle">
-          <a href="#" class="uk-navbar-toggle" uk-icon="icon: menu" uk-toggle="target: .accordion_menu; animation: uk-animation-fade"></a>
-          <!-- <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: .accordion_menu; animation: uk-animation-fade" href="#"></a> -->
+          <a id="navbar_toggle" href="#" class="uk-navbar-toggle" uk-icon="icon: menu"></a>
+          <!-- <a id="navbar_toggle" href="#" class="uk-navbar-toggle" uk-icon="icon: menu" uk-toggle="target: .accordion_menu; animation: uk-animation-fade"></a> -->
         </div>
       </div>
       <!-- END small screen menu -->
@@ -117,7 +117,17 @@
 
 <div id="offcanvas-nav" uk-offcanvas="flip: true;">
   <div class="uk-offcanvas-bar">
-    <a href="#" uk-totop uk-scroll>top</a>
+
+    <ul class="uk-nav uk-nav-default uk-list" uk-scrollspy-nav="closest: li; scroll: true; offset:150; cls: toc-active">
+      <li><a href="#" uk-totop uk-scroll>top</a></li>
+      {% for item in this.body.toc recursive %}
+        <li><a href="#{{ item.anchor }}">{{ item.title }}</a>
+          {%if item.children %}
+            <ul class="toc uk-list uk-list-divider">{{ loop(item.children) }}</ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
 
