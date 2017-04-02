@@ -3,15 +3,23 @@ var path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const extractLess = new ExtractTextPlugin({
-    filename: "[name]", //[contenthash]
-    disable: process.env.NODE_ENV === "development"
+    filename: "[name]",
+    //disable: process.env.NODE_ENV === "development"
 });
-staticDir = path.dirname(__dirname) +'/assets/static/'
+var staticDir = path.dirname(__dirname) +'/assets/static/';
+var jsDir = staticDir + 'js';
+
 
 var options = {
   entry:  {
     'theme.css': staticDir +'less/uikit_deep_red.less',
-    'site.js': staticDir +'js/site.js',
+    'site.js': [
+                "jquery",
+                "jquery-ui_effects-core.min",
+                "uikit-icons",
+                "uikit",
+                'site',
+              ]
   },
   output: {
     path: staticDir + 'gen',
@@ -19,9 +27,11 @@ var options = {
   },
   resolve: {
    modules: [
-     path.join(__dirname, '/assets/static/less/'),
-     "node_modules"
-   ]
+     "node_modules",
+     jsDir,
+     path.join(__dirname, '/assets/static/less/')
+   ],
+
   },
   module: {
     rules: [{
@@ -40,7 +50,7 @@ var options = {
   plugins: [
       extractLess
   ],
-  externals: {jquery: 'jQuery', uikit: 'UIkit', 'uikit-icons': 'Icons'}
+
 };
 
 module.exports = options;
