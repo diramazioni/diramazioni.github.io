@@ -58,7 +58,7 @@
       <!-- @@@ small screens -->
       <div id="menu_bar-s" class="uk-hidden@m uk-width-auto">
         <div class="navbar_toggle">
-          <a id="navbar_toggle" href="#" class="uk-navbar-toggle" uk-icon="icon: menu"></a>
+          <a id="navbar_toggle" href="#"  class="uk-navbar-toggle" uk-icon="icon: menu"></a>
           <!-- <a id="navbar_toggle" href="#" class="uk-navbar-toggle" uk-icon="icon: menu" uk-toggle="target: .accordion_menu; animation: uk-animation-fade"></a> -->
         </div>
       </div>
@@ -93,7 +93,7 @@
   </div>
   <!-- END medium screen -->
 </nav>
-<div class="accordion_menu" hidden>
+<div class="accordion_menu" style="display: none">
   <ul class="uk-nav-parent-icon" uk-nav>
     {% for id, item in bag('menu').items() %}
       <li{% if this.is_child_of(item.path) %} class="menu-active"{% endif%}>

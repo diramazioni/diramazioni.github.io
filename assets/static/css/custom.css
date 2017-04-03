@@ -6,9 +6,9 @@
     padding: 0 10px 0 10px;
 }
 
-.uk-navbar-toggle:after {
+/*.uk-navbar-toggle:after {
     content: '';
-}
+}*/
 
 div.uk-open {
     /*opacity: 0.9;*/

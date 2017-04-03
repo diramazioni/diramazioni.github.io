@@ -14,20 +14,32 @@ $(window).resize(WindowsSize);
 // UIkit.use(Icons);
 
 $(document).ready(function() {
-  
-  var nav_toggle = UIkit.toggle('#navbar_toggle', {
-    target: '.accordion_menu',
-    animation: 'uk-animation-fade'
-  });
+  var nav_toggle = false;
+  $('#navbar_toggle').click(function(event) {
+    event.preventDefault();
+    nav_toggle = !nav_toggle;
+    $('.accordion_menu').slideToggle(nav_toggle);
+  })
+  // var nav_toggle = UIkit.toggle('#navbar_toggle', {
+  //   target: '.accordion_menu',
+  //   animation: 'uk-animation-fade'
+  // });
   $('#menu').on('active', function () { //sticky
     $('.navbar_toggle').addClass('sticky_toggle', 500);
-    console.log('to ' + nav_toggle.isToggled());
-    nav_toggle.toggle();
+    console.log('to ' + nav_toggle);
+    if ( nav_toggle === true ) {
+      nav_toggle = false;
+      $('.accordion_menu').toggle("slow");
+    }
     // $('.accordion_menu').addClass('sticky_menu', 500);
   });
   $('#menu').on('inactive', function () { //un-sticky
-    console.log('fr ' + nav_toggle.isToggled());
+    console.log('fr ' + nav_toggle);
     $('.navbar_toggle').removeClass('sticky_toggle', 500);
+    if ( nav_toggle === false ) {
+      nav_toggle = true;
+      $('.accordion_menu').slideToggle();
+    }
     // $('.accordion_menu').removeClass('sticky_menu', 500);
   });
   //uk-toggle="target: .accordion_menu; animation: uk-animation-fade
