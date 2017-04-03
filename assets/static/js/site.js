@@ -8,13 +8,13 @@ var WindowsSize=function(){
 $(document).ready(WindowsSize);
 $(window).resize(WindowsSize);
 */
-import $ from 'jquery';
-import UIkit from 'uikit';
-import Icons from 'uikit-icons';
-UIkit.use(Icons);
+// import $ from 'jquery';
+// import UIkit from 'uikit';
+// import Icons from 'uikit-icons';
+// UIkit.use(Icons);
 
 $(document).ready(function() {
-
+  
   var nav_toggle = UIkit.toggle('#navbar_toggle', {
     target: '.accordion_menu',
     animation: 'uk-animation-fade'
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 
 
-//////////
+////////// utils
 
 
 
@@ -129,7 +129,7 @@ function letterIN(letter, fillColor) {
       },
       duration: 500
     }
-                   );
+   );
   });
 }
 function rIntRange(min,max) {

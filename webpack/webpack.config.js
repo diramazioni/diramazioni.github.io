@@ -10,16 +10,29 @@ var staticDir = path.dirname(__dirname) +'/assets/static/';
 var jsDir = staticDir + 'js';
 
 
-var options = {
+
+module.exports = [{
   entry:  {
-    'theme.css': staticDir +'less/uikit_deep_red.less',
     'site.js': [
                 "jquery",
                 "jquery-ui_effects-core.min",
-                "uikit-icons",
                 "uikit",
+                "uikit-icons",
                 'site',
               ]
+  },
+  resolve: {
+   modules: [
+     "node_modules",
+     jsDir
+   ],
+  },
+  output: {
+    path: staticDir + 'gen',
+    filename: '[name]'
+  },
+  entry:  {
+    'theme.css': staticDir +'less/uikit_deep_red.less',
   },
   output: {
     path: staticDir + 'gen',
@@ -31,7 +44,6 @@ var options = {
      jsDir,
      path.join(__dirname, '/assets/static/less/')
    ],
-
   },
   module: {
     rules: [{
@@ -51,6 +63,6 @@ var options = {
       extractLess
   ],
 
-};
-
-module.exports = options;
+}];
+//
+// module.exports = options;
