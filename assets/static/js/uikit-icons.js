@@ -1,1 +1,1 @@
-/home/es/src/lektor/diramazioni/node_modules/uikit/dist/js/uikit-icons.js
+../../../node_modules/uikit/dist/js/uikit-icons.js
