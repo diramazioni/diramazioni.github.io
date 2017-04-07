@@ -54,11 +54,13 @@
 </head>
 <body>
   <header>
-    <div class="header_top uk-cover-container">
-      {% set image = this.attachments.images.first() %}
-      {% if image %}
-        <img src="{{ image|url }}" alt="" uk-cover>
-      {% endif %}
+    {% block nav %}{% endblock %}
+    {% set image = this.attachments.images.first() %}
+    <div class="uk-height-medium uk-cover-container {% if image %}
+      uk-background-fixed uk-background-norepeat uk-background-cover{% endif %}"
+      {% if image %} style="background-image: url({{ image|url }});
+      background-position: center -{{ image.height }}px;"{% endif %} >
+
       <div id="logo" class="" style="margin-left: 110px; margin-top: 10px; ">
         <span id="logo_1" style="font-size:2rem; line-height: 1.9;">diramazioni</span> <br />
         <span id="logo_2" style="font-size:1.3rem; line-height: 1.2;">Eli Spizzichino's</span>

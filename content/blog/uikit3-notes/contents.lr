@@ -18,9 +18,30 @@ This notes is taken while uikit 3 is still in beta so things may change.
 ``` html
 <div class="header_top uk-cover-container">
     <img src="" uk-cover>
+    {% if image %}
+      <img src="{{ image|url }}" alt="" uk-cover>
+    {% endif %}
+</div>
+```
+#### cover entire viewport
+[cover](https://getuikit.com/docs/cover)
+
+``` html
+<div class="uk-cover-container" uk-height-viewport>
+    <img src="" alt="" uk-cover>
 </div>
 ```
 #### fixed background
 ``` html
 <div class="uk-background-fixed uk-background-center-center uk-height-medium uk-width-large" style="background-image: url(../docs/images/dark.jpg);"></div>
+
+<div class="uk-height-medium {% if image %}uk-background-fixed uk-background-center-center{% endif %}"
+  {% if image %}style="background-repeat: no-repeat;
+  background-image: url({{ image|url }}); background-size: cover; background-position: center bottom; "{% endif %} >
+
+```
+#### add a caption
+``` html
+<div class="uk-inline">
+  <div class="uk-overlay uk-dark uk-overlay-primary uk-position-bottom">
 ```

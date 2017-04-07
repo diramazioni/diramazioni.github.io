@@ -12,6 +12,7 @@
 nav {
    width: 100%;
    top: 10px;
+   z-index: 10;
 }
 
 
@@ -92,12 +93,20 @@ li>a.reference {
     font-size: 14px;
 }
 
+.media_descr>p, .media_caption>p{
+  margin: 0;
+  padding: 5px
+}
+.uk-overlay {
+  padding: 5px;
+}
+
 .uk-offcanvas-bar .uk-nav-default>li>a:hover {
-    color: red;
+    color: rgb(81, 147, 101);
 }
 
 .uk-offcanvas-bar .uk-nav-default>li>a {
-    color: wheat;
+    color: rgb(39, 1, 112);
 }
 
 .uk-navbar-dropdown {
