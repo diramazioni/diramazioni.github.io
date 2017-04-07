@@ -14,41 +14,38 @@
   {% set images = this.attachments.images.all() %}
   {% if images %}
   <div class="image_box uk-flex-middle uk-grid-match" uk-grid> <!-- uk-grid-match -->
-    {% for image in images %}
-
-      <div class="uk-card uk-card-small uk-visible-toggle ">
-        <div class="uk-card-media-top uk-inline">
-          <a href="{{ image|url }}" class="img_link"> <img src="{{ image.thumbnail(300)|url }}" alt="{{ image._id }}"></a>
-          {% if image.caption %}
-          <div class="uk-invisible-hover">
-          <!-- uk-hidden-hover -->
-            <div class="uk-overlay uk-dark uk-overlay-primary uk-position-bottom">
-              <!-- class="uk-text-lead" -->
-              <div class="uk-text-center media_caption">{{ image.caption }}
-              </div>
-              {% if image.description %}
-              {#
-              <span uk-overlay-icon uk-toggle="target: #descr_{{ image._id|replace('.','-') }}; animation: uk-animation-slide-left, uk-animation-slide-right"></span>
-              <button href="#descr_{{ image._id|replace('.','-') }}" type="button" uk-toggle="target: #descr_{{ image._id|replace('.','-') }}; animation: uk-animation-fade; duration: 250; queued: true;"> + </button>
-              #}
-              <a href="#" class="uk-icon-button" uk-icon="icon: plus" uk-toggle="target: #descr_{{ image._id|replace('.','-') }}; animation: uk-animation-fade; duration: 250; queued: true;">
-              </a>
-              <div id="descr_{{ image._id|replace('.','-') }}" class="media_descr" hidden>{{image.description}}</div>
-              {% endif %}
-
-              {% if image.exif.created_at %}
-              <p class="uk-text-meta">
-                {{ image.exif.camera }}
-                  ({{ image.exif.created_at|dateformat }})
-              </p>
-              {% endif %}
+  {% for image in images %}
+    <div class="uk-card uk-card-small uk-visible-toggle ">
+      <div class="uk-card-media-top uk-inline">
+        <a href="{{ image|url }}" class="img_link"> <img src="{{ image.thumbnail(300)|url }}" alt="{{ image._id }}"></a>
+        {% if image.caption %}
+        <div class="uk-invisible-hover">
+          <div class="uk-overlay uk-dark uk-overlay-primary uk-position-bottom">
+            <div class="uk-text-center media_caption">{{ image.caption }}
             </div>
-          </div>
-          {% endif %}
-        </div>
+            {% if image.description %}
+            {#
+            <span uk-overlay-icon uk-toggle="target: #descr_{{ image._id|replace('.','-') }}; animation: uk-animation-slide-left, uk-animation-slide-right"></span>
+            <button href="#descr_{{ image._id|replace('.','-') }}" type="button" uk-toggle="target: #descr_{{ image._id|replace('.','-') }}; animation: uk-animation-fade; duration: 250; queued: true;"> + </button>
+            #}
+            <a href="#" class="uk-icon-button" uk-icon="icon: plus" uk-toggle="target: #descr_{{ image._id|replace('.','-') }}; animation: uk-animation-fade; duration: 250; queued: true;">
+            </a>
+            <div id="descr_{{ image._id|replace('.','-') }}" class="media_descr" hidden>{{image.description}}</div>
+            {% endif %}
 
+            {% if image.exif.created_at %}
+            <p class="uk-text-meta">
+              {{ image.exif.camera }}
+                ({{ image.exif.created_at|dateformat }})
+            </p>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
       </div>
-    {% endfor %}
+
+    </div>
+  {% endfor %}
   </div>
   {% endif %}
 
