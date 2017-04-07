@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% from "macros/nav-menu.html" import  render_menu with context %}
+{% block title %}{{ this.title }}{% endblock %}
+
+{% block header %}
+  {{ render_menu() }}
+{% endblock %}
+
+
+{% block body %}
+
+  <h2>{{ this.title }}</h2>
+
+  {% set images = this.attachments.images.all() %}
+  {% if images %}
+  <!-- uk-flex uk-flex-wrap uk-flex-auto uk-flex-wrap-around -->
+  <div class="image_box uk-flex-middle" uk-grid>
+    {% for image in images %}
+
+      <div class="uk-card uk-card-small">
+        <div class="uk-card-hover">
+
+        <div class="uk-card-media-top">
+          <a href="{{ image|url }}" class="img_link"> <img src="{{ image.thumbnail(300)|url }}" alt="{{ image._id }}"></a>
+        </div>
+        <div class="uk-card-body">
+          <!-- class="uk-text-lead" -->
+          <div class="uk-card-title uk-text-center">{{ image.caption }}</div>
+          {% if image.exif %}
+          <p class="uk-text-meta">
+            {{ image.exif.camera }}
+            {% if image.exif.created_at %}
+              ({{ image.exif.created_at|dateformat }})
+            {% endif %}
+          </p>
+          {% endif %}
+        </div>
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+{% endblock %}

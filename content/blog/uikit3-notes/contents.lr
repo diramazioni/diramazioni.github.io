@@ -1,0 +1,26 @@
+title: uikit3 notes
+---
+body:
+
+## Some notes on using uikit3
+This notes is taken while uikit 3 is still in beta so things may change.
+
+### flex
+#### Align a content center vertically and horizontally
+``` html
+<div class="uk-panel uk-flex uk-flex-center uk-flex-middle">
+    <p class="uk-h4">Cover</p>
+</div>
+```
+
+### images
+#### cover entire containing div
+``` html
+<div class="header_top uk-cover-container">
+    <img src="" uk-cover>
+</div>
+```
+#### fixed background
+``` html
+<div class="uk-background-fixed uk-background-center-center uk-height-medium uk-width-large" style="background-image: url(../docs/images/dark.jpg);"></div>
+```

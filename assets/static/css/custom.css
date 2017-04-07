@@ -5,10 +5,16 @@
 .page {
     padding: 0 10px 0 10px;
 }
+.header_top {
+  height: 200px;
+}
 
-/*.uk-navbar-toggle:after {
-    content: '';
-}*/
+nav {
+   width: 100%;
+   top: 10px;
+}
+
+
 
 div.uk-open {
     /*opacity: 0.9;*/
@@ -16,23 +22,14 @@ div.uk-open {
     padding-left: 25px;
 }
 
-.sr-only {
-    font-size: 1px;
-    opacity: 0;
-}
-
+/* side menu */
 #smenu {
+    margin: 10px;
     color: white;
 }
-
-/*
-.bl-position, .sm-position {
-    position: fixed;
-    z-index: 1000;
-    left: 15px;
-    top: 15px;
-}*/
-
+.side-menu_toggle {
+  position: absolute;
+}
 #menu_bar-m {
   /*margin-left: 80px;*/
 }
@@ -41,40 +38,27 @@ div.uk-open {
   /*margin-left: 30px;*/
 }
 
-/*.inline-block {
-  display: inline-block;
-}*/
-#navbar-left {
-  left: 15px;
-  top: 15px;
-  margin-left: 15px;
-  margin-top:  15px;
-  /*margin-top: */
-}
+
 
 .navbar_toggle {
-  margin-top:-15px;
+  /*margin-top:-15px;*/
 }
 
 .sticky_toggle {
-  left: 100px;
-  top: 30px;
-  position: absolute;
+  background-color: rgba(33, 3, 9, 0.3);
+  height: 80px;
 }
 
 .accordion_menu {
-  margin-left: 115px;
+  right: 50px;
   position: fixed;
-  top: 65px;
+  top: 40px;
   padding: 15px;
   background-color: rgb(102, 13, 13);
   z-index: 1100;
 }
 
-.sticky_menu {
-  margin-left: 120px;
-  top: 20px;
-}
+
 
 .toc-active {
   background-color: #790f0f;
@@ -94,9 +78,14 @@ ul.toc>li:hover {
 }*/
 
 .shadows {
-    border-radius: 100%;
-    background-color: black;
-    box-shadow: 0 0 10px 10px black;
+    /*border-radius: 100%;*/
+    /*background-color: black;*/
+    box-shadow: 0 0 1px 0 #f6f961;
+}
+
+.smaller {
+  width: 80%;
+  /*height: 80%;*/
 }
 
 li>a.reference {
@@ -117,17 +106,12 @@ li>a.reference {
     /*top: 10px;*/
 }
 
-.uk-navbar-container:not(.uk-navbar-transparent) {
+/*.uk-navbar-container:not(.uk-navbar-transparent) {
     background: -moz-linear-gradient(top, rgba(33, 3, 9, 1) 0%, rgba(33, 3, 9, 1) 63%, rgba(33, 3, 9, 0) 100%);
-    /* FF3.6-15 */
     background: -webkit-linear-gradient(top, rgba(33, 3, 9, 1) 0%, rgba(33, 3, 9, 1) 63%, rgba(33, 3, 9, 0) 100%);
-    /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgba(33, 3, 9, 1) 0%, rgba(33, 3, 9, 1) 63%, rgba(33, 3, 9, 0) 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#210309', endColorstr='#00210309', GradientType=0);
-    /* IE6-9 */
-    copy
-}
+}*/
 
 #container {}
 
@@ -165,4 +149,7 @@ div.admonition {
 
 div.admonition p.admonition-title {
     background-color: #e6e1c6;
+}
+#lektor-edit-link {
+  right: 30px;
 }

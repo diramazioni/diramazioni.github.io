@@ -1,0 +1,6 @@
+_model: galleries
+---
+_slug: gallery
+---
+_template: galleries.html
+

@@ -32,7 +32,8 @@ module.exports = [{
     filename: '[name]'
   },
   entry:  {
-    'theme.css': staticDir +'less/uikit_deep_red.less',
+    'uikit_deep_red.css': staticDir +'less/uikit_deep_red.less',
+    'uikit_green.css': staticDir +'less/uikit_green.less',
   },
   output: {
     path: staticDir + 'gen',

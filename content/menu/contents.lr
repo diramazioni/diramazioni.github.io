@@ -1,7 +1,0 @@
-_model: menu
----
-_slug: nav-menu
----
-_template: macros/nav-menu.html
----
-_discoverable: no

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ lang |default('en')}}">
+<head>
 
 {% block metas %}
   <meta charset="utf-8">
@@ -28,11 +29,12 @@
   <link href="{{ '/static/css/L_uikit_deep_red.css'|url }}" rel="stylesheet" type="text/css">
    -->
 
-  <link href="{{ '/static/gen/theme.css'|url }}" rel="stylesheet" type="text/css">
+  <link href="{{ '/static/gen/uikit_deep_red.css'|url }}" rel="stylesheet" type="text/css">
   <link href="{{ '/static/css/custom.css'|url }}" rel="stylesheet" type="text/css">
+  <!-- <link rel="stylesheet" href="{{ '/static/css/pygments-css/friendly.css'|url }}"> -->
 {% endblock %}
 {% block scripts %}
-
+<!-- no, I'm not using bootstrap -->
 
 <!-- <script src="{{ '/static/js/utils.js'|url }}"></script> -->
 
@@ -45,11 +47,24 @@
  <!-- <script src="{{ '/static/gen/site.js'|url }}"></script> -->
 
   <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-{% endblock %}
 
+{% endblock %}
+{% block extra_head %}{% endblock %}
 <title>{% block title %}Welcome{% endblock %} — diramazioni</title>
+</head>
 <body>
   <header>
+    <div class="header_top uk-cover-container">
+      {% set image = this.attachments.images.first() %}
+      {% if image %}
+        <img src="{{ image|url }}" alt="" uk-cover>
+      {% endif %}
+      <div id="logo" class="" style="margin-left: 110px; margin-top: 10px; ">
+        <span id="logo_1" style="font-size:2rem; line-height: 1.9;">diramazioni</span> <br />
+        <span id="logo_2" style="font-size:1.3rem; line-height: 1.2;">Eli Spizzichino's</span>
+        <span id="logo_3" style="font-size:1rem; line-height: 0.9;"> digital home</span>
+      </div>
+    </div>
     {% block header %}{% endblock %}
   </header>
   <div class="page">

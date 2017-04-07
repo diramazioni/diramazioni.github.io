@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% from "macros/nav-menu.html" import  render_menu with context %}
+{% block title %}{{ this.title }}{% endblock %}
+
+{% block header %}
+  {{ render_menu() }}
+{% endblock %}
+
+
+{% block body %}
+
+  <h2>{{ this.title }}</h2>
+  <div class="projects">
+  {% for gallery in this.children %}
+    <div class="gallery">
+      {% set image = gallery.attachments.images.first() %}
+      {% if image %}
+        <img src="{{ image.thumbnail(250)|url }}" alt="">
+      {% endif %}model
+      <h2><a href="{{ gallery|url }}">{{ gallery.name }}</a>
+    </div>
+  {% endfor %}
+  </div>
+
+{% endblock %}

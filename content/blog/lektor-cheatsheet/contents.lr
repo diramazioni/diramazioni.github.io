@@ -10,7 +10,7 @@ body:
 `npm install --save-dev webpack babel-core babel-loader css-loader url-loader style-loader file-loader extract-text-webpack-plugin less less-loader`
 node-sass sass-loader eventualy
 
-```
+``` js
 var webpack = require('webpack');
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -66,14 +66,43 @@ to run the server and auto-generate
 
 `lektor server -f webpack`
 
+## how-to
+### get latest post with alt language selection
+```css+jinja
+{% set pages = site.query('./blog', alt=alt).all() %}
+{% for page in pages[0:5] %}
+  <li>
+  <a href="./blog/{{ page._id }}"> {{ page.title }}</a>
+  </li>
+  {% endif %}
+{% endfor %}
+```
 ## external js libs
+[list carousel](https://dcrazed.com/free-responsive-jquery-carousel-slider-plugins/)
+
 [image carousel slick](https://kenwheeler.github.io/slick/)
+
+[slide](http://itemslide.github.io/)
+
+[svg to canvas](http://www.professorcloud.com/svg-to-canvas/)
+
+[svg to canvas](https://github.com/nathan-muir/canvgc)
+
+[svg edit](https://github.com/SVG-Edit/svgedit)
+
+[svg free library](http://ian.umces.edu/imagelibrary/)
+
+[canvas hit detection](http://www.concretejs.com/)
 
 ## not listed plugins
 [json source for pages](https://github.com/yargies/lektor-datapages)
+
 [embed youtube and twitter](https://github.com/kmonsoor/lektor-embed-x)
+
 [google drive](https://github.com/singingwolfboy/lektor-google-drive)
+
 [static search](https://github.com/rlaverde/lektor-static-search)
+
 [algolia search](https://github.com/sherbondy/lektor-algolia)
 
 ## not listed external apps
@@ -97,5 +126,9 @@ to run the server and auto-generate
 
 #### notes taken on lektor
 [writing plugins](http://spenczar.com/posts/2015/Dec/24/lektor-publisher-plugin/)
+
 [notes on code](https://github.com/mdashx/code-reading)
+
 [general notes](https://zerokspot.com/weblog/2016/09/16/hello-lektor/)
+
+[migrating to lektor](https://emptysqua.re/blog/experience-migrating-to-lektor/)

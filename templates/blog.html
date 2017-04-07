@@ -1,7 +1,14 @@
 {% extends "layout.html" %}
 {% from "macros/blog.html" import render_blog_post %}
 {% from "macros/pagination.html" import render_pagination %}
+{% from "macros/nav-menu.html" import  render_menu with context %}
+
 {% block title %}{{ this.title }}{% endblock %}
+{% block header %}
+{{ render_menu() }}
+{##}
+{% endblock %}
+
 {% block body %}
   {% for child in this.pagination.items %}
     {{ render_blog_post(child, from_index=true) }}
