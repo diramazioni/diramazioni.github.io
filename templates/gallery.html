@@ -31,14 +31,17 @@
       <button class="uk-modal-close-default" type="button" uk-close></button>
       <!-- <div id="image_div"> -->
 
-        <div class="uk-cover-container" uk-height-viewport >
-            <img id="image_full" src="{{images[0].thumbnail(300)|url}}" alt="" >
-        </div>
+      <div class="uk-cover-container" uk-height-viewport >
+        <!-- <canvas width="400" height="200"></canvas> -->
+        <img id="image_full" src="{{images[0].thumbnail(300)|url}}" alt="" >
+      </div>
       <!-- </div> -->
       <div class="uk-slidenav-container uk-position-bottom-center">
         <a id="image_prev" href="#" uk-slidenav-previous class="uk-slidenav-buttons"></a>
+        <a href="#" uk-icon="icon: info" uk-toggle="target: #image_descr; animation: uk-animation-fade; duration: 250; queued: true;" class="uk-icon-button"></a>
         <a id="image_next" href="#" uk-slidenav-next class="uk-slidenav-buttons"></a>
       </div>
+      <div id="image_descr" class="media_descr" hidden></div>
     </div>
   </div>
   <!-- image list -->
@@ -87,7 +90,9 @@
         {%- set caption = image.caption|trim -%}
         {%- set description = image.description|trim -%}
         "id": "{{ image._id }}",
-        "src": "{{ image|url }}"
+        "src": "{{ image|url }}",
+        "width": {{ image.width }},
+        "height": {{ image.height }}
         {%- if description %},
         "description": "{{ description }}"{% endif %}
         {%- if caption %},
