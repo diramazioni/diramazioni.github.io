@@ -31,6 +31,19 @@ This notes is taken while uikit 3 is still in beta so things may change.
     <img src="" alt="" uk-cover>
 </div>
 ```
+#### flex center
+[flex](https://getuikit.com/docs/flex)
+
+``` html
+<div class="uk-flex uk-flex-center">
+    <div></div>
+</div>
+
+.uk-flex-auto
+class="uk-flex-stretch"
+uk-flex uk-flex-center uk-flex-middle
+```
+
 #### fixed background
 ``` html
 <div class="uk-background-fixed uk-background-center-center uk-height-medium uk-width-large" style="background-image: url(../docs/images/dark.jpg);"></div>
@@ -45,3 +58,14 @@ This notes is taken while uikit 3 is still in beta so things may change.
 <div class="uk-inline">
   <div class="uk-overlay uk-dark uk-overlay-primary uk-position-bottom">
 ```
+
+#### prev and next nav
+[slidenav](https://getuikit.com/docs/slidenav)
+``` html
+<a href="#" class="uk-slidenav-large" uk-slidenav-previous></a>
+<a href="#" class="uk-slidenav-large" uk-slidenav-next></a>
+```
+
+
+## external libs
+[css hover](http://ianlunn.github.io/Hover/)

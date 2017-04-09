@@ -3,3 +3,4 @@ content/projects/*
 assets/static/images/*
 assets/static/less
 node_modules
+*~

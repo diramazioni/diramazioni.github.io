@@ -16,7 +16,7 @@
       {% set image = gallery.attachments.images.first() %}
       {% if image %}
         <img src="{{ image.thumbnail(250)|url }}" alt="">
-      {% endif %}model
+      {% endif %}
       <h2><a href="{{ gallery|url }}">{{ gallery.name }}</a>
     </div>
   {% endfor %}

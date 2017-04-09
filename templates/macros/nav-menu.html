@@ -69,20 +69,20 @@
     <!-- @@@ medium screens -->
     <div id="menu_bar-m" class="uk-navbar-right uk-visible@m">
 
-      <ul class="uk-navbar-nav">
+      <ul class="uk-navbar-nav" >
         {% for id, item in bag('menu').items() %}
-        <li{% if this.is_child_of(item.path) %} class="menu-active" {% endif%}>
+        <li{% if (this.is_child_of(item.path) and item.path != '/') %} class="menu-active uk-border-rounded" {% endif%}>
           <a href="{{ item.path|url }}">{{ item.label }}</a>
-          </li>
-          {% endfor %}
+        </li>
+        {% endfor %}
           <!-- recursive menu -->
           {% set root = site.get('/projects') %}
           {% for child in root.children recursive %} {% set child_len = loop(child.children)|length %}
           <li class="{% if this._path == child._path %}menu-active {% endif %}{% if child_len > 0 and loop.depth >1 %}uk-parent {% endif %}">
-            <a href="{{ child|url }}">{{ child.title }}</a> 
+            <a href="{{ child|url }}">{{ child.title }}</a>
             {% if child_len > 0 and loop.depth == 1 %} {#{% if this.is_child_of(child) %}#}
             <div class="uk-navbar-dropdown">
-              <ul class="uk-nav uk-navbar-dropdown-nav uk-border-rounded">{{ loop(child.children) }}</ul>
+              <ul class="uk-nav uk-navbar-dropdown-nav">{{ loop(child.children) }}</ul>
             </div>
             {% elif child_len > 0 and loop.depth > 1 %}
             <ul class="uk-nav-sub">{{ loop(child.children) }}</ul>
