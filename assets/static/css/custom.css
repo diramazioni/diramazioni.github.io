@@ -93,7 +93,7 @@ ul.toc>li:hover {
   /*margin: auto;*/
 }
 #image_full {
-  height: 90%;
+  /*height: 90%;*/
   /*height: 97%;*/
   /*width: 90%;*/
 
@@ -109,7 +109,7 @@ li>a.reference {
     font-size: 14px;
 }
 .uk-slidenav-buttons:hover {
-  background-color: rgba(33, 3, 9, 0.7); 
+  background-color: rgba(33, 3, 9, 0.7);
 }
 .uk-slidenav-container {
   background-color: rgba(113, 199, 227, 0.31);

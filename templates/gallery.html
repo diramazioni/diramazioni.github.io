@@ -3,9 +3,11 @@
 {% block title %}{{ this.title }}{% endblock %}
 
 {% block extra_head %}
+<!--
   <script src="{{ '/static/js/imagesloaded.pkgd.min.js'|url }}"></script>
   <script src="{{ '/static/js/hammer.min.js'|url }}"></script>
   <script src="{{ '/static/js/jquery.hammer.js'|url }}"></script>
+-->
   <!-- <script src="{{ '/static/js/sequence.min.js'|url }}"></script>
   <script src="{{ '/static/js/sequence-theme.intro.js'|url }}"></script>
   <link href="{{ '/static/css/sequence-theme.intro.css'|url }}" rel="stylesheet" type="text/css"> -->
@@ -24,17 +26,18 @@
   {% set images = this.attachments.images.all() %}
   {% if images %}
   <!-- slider hidden -->
+  <div id="image_div" class="uk-cover-container" hidden>
+    <canvas width="" height=""></canvas>
+    <img id="image_full" src="" alt="" uk-cover>
+  </div>
 
   <div id="image_slider" uk-modal>
     <!-- class="uk-inline" -->
     <div class="uk-modal-dialog uk-modal-body modal-full uk-flex uk-flex-center" >
       <button class="uk-modal-close-default" type="button" uk-close></button>
-      <!-- <div id="image_div"> -->
 
-      <div class="uk-cover-container" uk-height-viewport >
-        <!-- <canvas width="400" height="200"></canvas> -->
-        <img id="image_full" src="{{images[0].thumbnail(300)|url}}" alt="" >
-      </div>
+<!-- uk-height-viewport  -->
+
       <!-- </div> -->
       <div class="uk-slidenav-container uk-position-bottom-center">
         <a id="image_prev" href="#" uk-slidenav-previous class="uk-slidenav-buttons"></a>
