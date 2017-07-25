@@ -106,7 +106,7 @@
       {% set root = site.get('/projects') %} 
       {% for child in root.children recursive %} 
         {% set child_len = loop(child.children)|length %}
-        <li class="{% if this._path == child._path %}menu-active {% endif %}{% if child_len > 0 and loop.depth == 1 %}uk-parent {% endif %}">
+        <li class="{% if this._path == child._path %}menu-active {% endif %}{% if child_len > 0 and loop.depth == 1 %} uk-parent {% endif %}">
           <a href="{{ child|url }}">{{ child.title }}</a> 
           {% if child_len > 0 %}
           <ul class="uk-nav-sub">{{ loop(child.children) }}</ul>

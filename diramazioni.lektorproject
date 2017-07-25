@@ -4,3 +4,8 @@ name = diramazioni
 [packages]
 lektor-webpack-support = 0.3
 lektor-markdown-highlighter = 0.1
+
+[servers.master]
+enabled = yes
+default = yes
+target = ghpages://diramazioni.github.io
