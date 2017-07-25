@@ -87,9 +87,14 @@ $(document).ready(function() {
     }, 100); //left:$xp +'px',
 
   });
+$('.highlight').addClass('codehilite');
 
+$('#lektor-edit-link').css( "top", '150px');
+
+}); // end doc ready
+
+/*
 /// Gallery
-
 $('.img_toggle, .img_link').click(function(event) {
   event.preventDefault();
   $('#image_div').attr('data-id', $(this).attr('data-id'));
@@ -146,13 +151,8 @@ function load_slider(element) {
 $('#image_div').on('beforeshow', function(e) {
   load_slider(this);
 });
-$('.highlight').addClass('codehilite');
 
-$('#lektor-edit-link').css( "top", '150px');
-
-}); // end doc ready
-
-
+*/
 
 ////////// utils
 

@@ -74,7 +74,7 @@
         <li{% if (this.is_child_of(item.path) and item.path != '/') %} class="menu-active uk-border-rounded" {% endif%}>
           <a href="{{ item.path|url }}">{{ item.label }}</a>
         </li>
-        {% endfor %}
+        {% endfor %} 
           <!-- recursive menu -->
           {% set root = site.get('/projects') %}
           {% for child in root.children recursive %} {% set child_len = loop(child.children)|length %}
@@ -98,18 +98,21 @@
 <div class="accordion_menu uk-hidden@m" style="display: none">
   <ul class="uk-nav-parent-icon" uk-nav>
     {% for id, item in bag('menu').items() %}
-    <li{% if this.is_child_of(item.path) %} class="menu-active" {% endif%}>
-      <a href="{{ item.path|url }}">{{ item.label }}</a>
+      <li {%- if this.is_child_of(item.path) and item.path != '/' %} class="menu-active" {% endif%}>
+        <a href="{{ item.path|url }}">{{ item.label }}</a>
       </li>
-      {% endfor %}
+    {% endfor %}
       <!-- accordion recursive menu -->
-      {% set root = site.get('/projects') %} {% for child in root.children recursive %} {% set child_len = loop(child.children)|length %}
-      <li class="{% if this._path == child._path %}menu-active {% endif %}{% if child_len > 0 and loop.depth == 1 %}uk-parent {% endif %}">
-        <a href="{{ child|url }}">{{ child.title }}</a> {% if child_len > 0 %}
-        <ul class="uk-nav-sub">{{ loop(child.children) }}</ul>
-        {% endif %} {% endfor %}
-  </ul>
-  </li>
+      {% set root = site.get('/projects') %} 
+      {% for child in root.children recursive %} 
+        {% set child_len = loop(child.children)|length %}
+        <li class="{% if this._path == child._path %}menu-active {% endif %}{% if child_len > 0 and loop.depth == 1 %}uk-parent {% endif %}">
+          <a href="{{ child|url }}">{{ child.title }}</a> 
+          {% if child_len > 0 %}
+          <ul class="uk-nav-sub">{{ loop(child.children) }}</ul>
+          {% endif %}   
+        </li>
+      {% endfor %}
   </ul>
 </div>
 

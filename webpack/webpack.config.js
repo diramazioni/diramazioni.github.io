@@ -1,3 +1,13 @@
+// npm install --save-dev webpack babel-core babel-loader css-loader url-loader style-loader file-loader extract-text-webpack-plugin less less-compiler less-loader
+
+/*  
+ * add this to package.json
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "uikit": "^3.0.0-beta.27"
+  }
+*/
+
 var webpack = require('webpack');
 var path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -42,6 +52,7 @@ module.exports = [{
   resolve: {
    modules: [
      "node_modules",
+     "node_modules/uikit/src/less",
      jsDir,
      path.join(__dirname, '/assets/static/less/')
    ],

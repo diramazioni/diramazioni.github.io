@@ -4,109 +4,90 @@
 
 {% block extra_head %}
 <!--
-  <script src="{{ '/static/js/imagesloaded.pkgd.min.js'|url }}"></script>
-  <script src="{{ '/static/js/hammer.min.js'|url }}"></script>
-  <script src="{{ '/static/js/jquery.hammer.js'|url }}"></script>
+<script src="{{ '/static/js/imagesloaded.pkgd.min.js'|url }}"></script>
+<script src="{{ '/static/js/hammer.min.js'|url }}"></script>
+<script src="{{ '/static/js/jquery.hammer.js'|url }}"></script>
 -->
-  <!-- <script src="{{ '/static/js/sequence.min.js'|url }}"></script>
-  <script src="{{ '/static/js/sequence-theme.intro.js'|url }}"></script>
-  <link href="{{ '/static/css/sequence-theme.intro.css'|url }}" rel="stylesheet" type="text/css"> -->
+<!-- <script src="{{ '/static/js/sequence.min.js'|url }}"></script>
+<script src="{{ '/static/js/sequence-theme.intro.js'|url }}"></script>
+<link href="{{ '/static/css/sequence-theme.intro.css'|url }}" rel="stylesheet" type="text/css"> -->
 
 {% endblock %}
 
 {% block nav %}
-  {{ render_menu() }}
+{{ render_menu() }}
 {% endblock %}
 
 
 {% block body %}
 
-  <h2>{{ this.title }}</h2>
+<h2>{{ this.title }}</h2>
 
-  {% set images = this.attachments.images.all() %}
-  {% if images %}
-  <!-- slider hidden -->
-  <div id="image_div" class="uk-cover-container" hidden>
-    <canvas width="" height=""></canvas>
-    <img id="image_full" src="" alt="" uk-cover>
-  </div>
+{% set images = this.attachments.images.all() %}
+{% if images %}
 
-  <div id="image_slider" uk-modal>
-    <!-- class="uk-inline" -->
-    <div class="uk-modal-dialog uk-modal-body modal-full uk-flex uk-flex-center" >
-      <button class="uk-modal-close-default" type="button" uk-close></button>
 
-<!-- uk-height-viewport  -->
+<h2>Dynamic lightbox</h2>
 
-      <!-- </div> -->
-      <div class="uk-slidenav-container uk-position-bottom-center">
-        <a id="image_prev" href="#" uk-slidenav-previous class="uk-slidenav-buttons"></a>
-        <a href="#" uk-icon="icon: info" uk-toggle="target: #image_descr; animation: uk-animation-fade; duration: 250; queued: true;" class="uk-icon-button"></a>
-        <a id="image_next" href="#" uk-slidenav-next class="uk-slidenav-buttons"></a>
-      </div>
-      <div id="image_descr" class="media_descr" hidden></div>
-    </div>
-  </div>
-  <!-- image list -->
-  <div class="image_box uk-flex-middle uk-grid-match" uk-grid> <!-- uk-grid-match -->
+<!--<button id="lightbox" class="uk-button uk-button-default" type="button">Dynamic lightbox</button>-->
+
+<!-- image list -->
+<div id="lightbox-animation" class="uk-child-width-1-5@m uk-grid" uk-grid uk-lightbox>
   {% for image in images %}
-    <div class="uk-card uk-card-small uk-visible-toggle ">
-      <div class="uk-card-media-top uk-inline">
-        <a data-id="{{ image._id }}" href="{{ image|url }}" class="img_link"> <img src="{{ image.thumbnail(300)|url }}" alt="{{ image._id }}"></a>
+  <div> 
+    <a class="uk-inline uk-panel uk-link-muted uk-text-center" href="{{ image|url }}">
+      {# {% if image.caption -%} caption="{{ image.caption }}"{%- endif %} #}
+      <figure>
+        <img src="{{ image|url }}" width="400" alt="">
         {% if image.caption %}
-        <div class="uk-invisible-hover">
-          <div class="uk-overlay uk-dark uk-overlay-primary uk-position-bottom">
-            <div class="uk-text-center media_caption">{{ image.caption }}
-            </div>
-            {#
-            <span uk-overlay-icon uk-toggle="target: #descr_{{ image._id|replace('.','-') }}; animation: uk-animation-slide-left, uk-animation-slide-right"></span>
-            <button href="#descr_{{ image._id|replace('.','-') }}" type="button" uk-toggle="target: #descr_{{ image._id|replace('.','-') }}; animation: uk-animation-fade; duration: 250; queued: true;"> + </button>
-            #}
-
-            {% if image.description %}
-            <div id="descr_{{ image._id|replace('.','-') }}" class="media_descr" hidden>{{image.description}}</div>
-            <a href="#" uk-icon="icon: info" uk-toggle="target: #descr_{{ image._id|replace('.','-') }}; animation: uk-animation-fade; duration: 250; queued: true;" class="uk-icon-button"></a>
-            {% endif %}
-            <a data-id="{{ image._id }}" href="#" uk-icon="icon: image" class="uk-icon-button img_toggle"></a>
-            <a href="{{ image|url }}" class="uk-icon-button" uk-icon="icon: link" ></a>
-
-            {% if image.exif.created_at %}
-            <p class="uk-text-meta">
-              {{ image.exif.camera }}
-                ({{ image.exif.created_at|dateformat }})
-            </p>
-            {% endif %}
-          </div>
-        </div>
+        <figcaption class="uk-margin-small-top">{{ image.caption }}</figcaption>
         {% endif %}
-      </div>
-
-    </div>
-  {% endfor %}
+      </figure>
+    </a>
   </div>
+  {% endfor %}
 
-  <script type="text/javascript">
-//<![CDATA[
+</div>
+<!--
+
+<script type="text/javascript">
+  //<![CDATA[
+  
   var img_json = [
     {%- for image in images %}
-      {
-        {%- set caption = image.caption|trim -%}
-        {%- set description = image.description|trim -%}
-        "id": "{{ image._id }}",
-        "src": "{{ image|url }}",
-        "width": {{ image.width }},
-        "height": {{ image.height }}
-        {%- if description %},
-        "description": "{{ description }}"{% endif %}
-        {%- if caption %},
-        'caption': '{{ caption }}'{% endif %}
-      }{% if not loop.last -%} ,{% endif %}
+    {
+    {%- set caption = image.caption|trim -%}
+    {%- set description = image.description|trim -%}
+    "id": "{{ image._id }}",
+    "src": "{{ image|url }}",
+    "width": {{ image.width }},
+    "height": {{ image.height }}
+    {%- if description %},
+    "description": "{{ description }}"{% endif %}
+    {%- if caption %},
+    'caption': '{{ caption }}'{% endif %}
+    }{% if not loop.last -%} ,{% endif %}
     {% endfor %}
   ];
-//]]>
-  </script>
 
 
-  {% endif %}
+  $('#lightbox').on('click', function (e) {
+    e.preventDefault();
+
+    UIkit.lightboxPanel({
+      items: [
+        {%- for image in images %}
+
+        {source: '{{ image|url }}', caption: '{{image.caption|trim}}'}{% if not loop.last -%} ,{% endif %}
+        {% endfor %}
+      ]
+    }).show();
+  });
+  //]]>
+</script>
+-->
+
+
+{% endif %}
 
 {% endblock %}
