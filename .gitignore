@@ -6,3 +6,5 @@ node_modules
 *~
 
 content/blog/git-notes/
+
+\.directory
